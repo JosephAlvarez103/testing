@@ -155,7 +155,6 @@ STATIC_URL = 'static/'
 
 # Configuración para producción de archivos estáticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/products')
@@ -177,8 +176,10 @@ EMAIL_HOST_USER = 'examplepapeleria@hotmail.com'
 EMAIL_HOST_PASSWORD = 'triqlbuvlqltmdiw'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app/static')
+    os.path.join(BASE_DIR, 'app/static',), ('vendor', 'staticfiles/vendor/bootswatch/default'),
 ]
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
